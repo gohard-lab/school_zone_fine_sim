@@ -153,10 +153,10 @@ def render_dashboard(df):
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("🔥 인기 검색 구역 TOP 5")
+            st.subheader("🔥 인기 검색 구역 TOP 3")
             st.caption("※ Y축 눈금은 사람들이 해당 구역의 과태료를 조회해 본 '검색 횟수(건)'를 의미합니다.")
             if 'zone' in details_df.columns:
-                zone_counts = details_df['zone'].value_counts().head(5)
+                zone_counts = details_df['zone'].value_counts().head(3)
                 st.bar_chart(zone_counts)
             else:
                 st.write("데이터 수집 중...")
