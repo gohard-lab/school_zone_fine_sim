@@ -51,9 +51,7 @@ uv run streamlit run src/school_zone_fine_sim.py
 ## 🔗 실행 및 다운로드 (Execution)
 코드를 직접 실행하기 어려운 분들을 위해 실행 링크를 제공합니다. 제공되는 실행 파일은 엄격한 보안 검토를 거쳤으므로 안심하고 내려받으셔도 됩니다.
 
-* **웹 서비스 실행**: [Google Colab 링크 바로가기]
-
-* **윈도우 실행 파일**: [EXE 다운로드 링크]
+* **웹 서비스 실행**: [https://schoolzonefinesim.streamlit.app/](https://schoolzonefinesim.streamlit.app/)
 
 ---
 
