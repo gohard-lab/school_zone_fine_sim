@@ -13,6 +13,7 @@ dependencies = [
     "folium>=0.20.0",
     "streamlit-folium>=0.26.2",
     "plotly>=6.7.0",
+    "postgrest", # supabase 연동 시 필요할 수 있음
 ]
 
 [build-system]
