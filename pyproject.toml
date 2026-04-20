@@ -1,0 +1,30 @@
+[project]
+name = "traffic-fine-portal"
+version = "0.1.0"
+description = "대한민국 교통 법규 종합 시뮬레이터 (웹 버전)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.31.0",
+    "pandas>=2.2.0",
+    "supabase>=2.3.0", # 월요일 작업을 위해 미리 넣어둡니다.
+    "streamlit_javascript", # 👈
+    "pydeck", # 👈 지도 시각화를 위해 추가!
+    "folium>=0.20.0",
+    "streamlit-folium>=0.26.2",
+    "plotly>=6.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# 💡 핵심: Hatchling에게 src 폴더를 패키지로 인식하라고 알려줍니다.
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+# 💡 경고 해결: tool.uv.dev-dependencies 대신 최신 규격인 dependency-groups를 사용합니다.
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
