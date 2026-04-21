@@ -447,20 +447,6 @@ def main():
                         "v_type": v_type
                     }
                 )
-
-                # 3. 특정 횟수(예: 3회) 도달 시 유도 메시지 노출
-                if st.session_state.run_count >= 3:
-                    st.info("💡 벌써 3번이나 확인하셨네요! 혹시 **'31km/h'**에서도 단속되는지 궁금하지 않으신가요?")
-                    col1, col2 = st.columns([1, 2])
-                    with col1:
-                        # 썸네일 이미지를 버튼처럼 활용
-                        st.image("https://img.youtube.com/vi/3NTzOH-QUOI/mqdefault.jpg")
-                    with col2:
-                        st.markdown("""
-                        **[영상에서 정답 확인하기]** 단속 카메라의 숨겨진 오차 범위와 과태료 면제 기준을 영상에 담았습니다.
-                        """)
-                        st.video("https://www.youtube.com/watch?v=3NTzOH-QUOI")
-
                         
             # ==========================================
             # 2. 화면 출력 로직 (버튼 바깥에 위치)
@@ -491,6 +477,22 @@ def main():
                 st.subheader("💡 잡학다식 인사이트")
                 for tip in res["tips"]:
                     st.write(f"• {tip}")
+
+
+
+                # 3. 특정 횟수(예: 3회) 도달 시 유도 메시지 노출
+                if st.session_state.run_count >= 3:
+                    st.info("💡 벌써 3번이나 확인하셨네요! 혹시 **'31km/h'**에서도 단속되는지 궁금하지 않으신가요?")
+                    col1, col2 = st.columns([1, 2])
+                    with col1:
+                        # 썸네일 이미지를 버튼처럼 활용
+                        st.image("https://img.youtube.com/vi/3NTzOH-QUOI/mqdefault.jpg")
+                    with col2:
+                        st.markdown("""
+                        **[영상에서 정답 확인하기]** 단속 카메라의 숨겨진 오차 범위와 과태료 면제 기준을 영상에 담았습니다.
+                        """)
+                        st.video("https://www.youtube.com/watch?v=3NTzOH-QUOI")
+
 
             else:
                 # 아직 버튼을 누르기 전일 때만 안내 문구를 띄웁니다.
