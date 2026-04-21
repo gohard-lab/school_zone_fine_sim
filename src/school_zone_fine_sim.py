@@ -13,6 +13,23 @@ from streamlit_folium import st_folium
 from streamlit_folium import folium_static
 
 
+# 사이드바에 유튜브 영상 배치
+with st.sidebar:
+    st.markdown("### 📺 제작 비하인드 및 가이드")
+    st.video("https://youtu.be/3NTzOH-QUOI")
+    st.caption("과태료 13만 원의 함정, 영상으로 확인하세요!")
+
+
+# 결과 리포트 섹션 아래에 배치
+st.divider()
+st.subheader("🧐 시뮬레이션 결과보기")
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    st.write("단순히 30km를 넘었다고 다 찍히는 게 아닙니다. 특정 시간대와 카메라 오차 범위의 비밀을 영상에서 상세히 풀었습니다.")
+    st.video("https://www.youtube.com/watch?v=대표님의_영상_ID")
+
+
 # --- [1] 데이터 로직: 풍성한 팁 생성기 ---
 def get_diverse_tips(fine, mode, zone, speed, limit):
     """
