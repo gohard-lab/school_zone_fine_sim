@@ -292,9 +292,9 @@ def render_advanced_map(df):
 
         # --- 🎛️ 4. UI 컨트롤 패널 ---
         style_options = {
+            "어두운 지도 (Carto Darkmatter)": "carto-darkmatter"
             "기본 지도 (OpenStreetMap)": "open-street-map",
             "밝은 지도 (Carto Positron)": "carto-positron",
-            "어두운 지도 (Carto Darkmatter)": "carto-darkmatter"
         }
         selected_style_name = st.selectbox("🗺️ 지도 스타일", list(style_options.keys()))
         selected_style = style_options[selected_style_name]
