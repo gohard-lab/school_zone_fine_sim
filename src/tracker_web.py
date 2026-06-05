@@ -12,8 +12,8 @@ from datetime import datetime, timezone
 def get_supabase_client():
     try:
         # 🌟 수정 후 (로컬: secrets.toml / 배포: Cloud Secrets 탭에서 자동 인식)
-        url = st.secrets["url"]
-        key = st.secrets["key"]
+        url = st.secrets["supabase"]["url"]
+        key = st.secrets["supabase"]["key"]
     except KeyError:
         # 설정 파일이나 클라우드 세팅이 누락되었을 때 부드럽게 에러 안내
         st.error("🚨 데이터베이스 연결 설정(secrets)이 누락되었습니다!")
