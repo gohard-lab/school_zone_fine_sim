@@ -110,8 +110,8 @@ def fetch_real_data():
             st.info(f"현재 인식된 키 목록: {existing_keys}")
             return pd.DataFrame()
 
-        url = st.secrets["url"]
-        key = st.secrets["key"]
+        url = st.secrets["supabase"]["url"]
+        key = st.secrets["supabase"]["key"]
 
         # 2. Supabase 클라이언트 생성 시도
         supabase: Client = create_client(url, key)
@@ -237,8 +237,8 @@ def get_all_usage_data():
     """Supabase의 usage_logs 테이블에서 데이터를 가져와 데이터프레임으로 반환합니다."""
     try:
         # secrets.toml에 저장된 Supabase 인증 정보 사용
-        url = st.secrets["url"]
-        key = st.secrets["key"]
+        url = st.secrets["supabase"]["url"]
+        key = st.secrets["supabase"]["key"]
         supabase: Client = create_client(url, key)
 
         # usage_logs 테이블에서 school_zone_fine_web에서 발생한 데이터만 조회
