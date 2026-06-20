@@ -5,7 +5,7 @@ import os
 import pydeck as pdk # 지도 시각화를 위해 필요합니다 (pyproject.toml에 추가 필요)
 import plotly.express as px
 import plotly.graph_objects as go
-from tracker_web import log_app_usage
+from tracker_hub import log_app_usage  # type: ignore
 from supabase import create_client, Client
 import folium
 from folium.plugins import HeatMap
