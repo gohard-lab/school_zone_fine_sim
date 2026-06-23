@@ -14,6 +14,7 @@ dependencies = [
     "streamlit-folium>=0.26.2",
     "plotly>=6.7.0",
     "postgrest", # supabase 연동 시 필요할 수 있음
+    "tracker_hub",
 ]
 
 [build-system]
@@ -29,3 +30,6 @@ packages = ["src"]
 dev = [
     "pytest>=8.0.0",
 ]
+
+[tool.uv.sources]
+tracker_hub = { git = "https://github.com/gohard-lab/tracker-hub.git" }
