@@ -7,14 +7,14 @@ requires-python = ">=3.10"
 dependencies = [
     "streamlit>=1.31.0",
     "pandas>=2.2.0",
-    "supabase>=2.3.0", # 월요일 작업을 위해 미리 넣어둡니다.
-    "streamlit_javascript", # 👈
-    "pydeck", # 👈 지도 시각화를 위해 추가!
+    "supabase>=2.3.0",
+    "streamlit_javascript",
+    "pydeck",
     "folium>=0.20.0",
     "streamlit-folium>=0.26.2",
     "plotly>=6.7.0",
-    "postgrest", # supabase 연동 시 필요할 수 있음
-    "tracker_hub",
+    "postgrest",
+    "tracker_hub @ git+https://github.com/gohard-lab/tracker-hub.git", # 👈 기존 tracker_hub를 지우고 이 주소로 대체합니다!
 ]
 
 [build-system]
@@ -31,5 +31,5 @@ dev = [
     "pytest>=8.0.0",
 ]
 
-[tool.uv.sources]
-tracker_hub = { git = "https://github.com/gohard-lab/tracker-hub.git" }
+[tool.hatch.metadata]
+allow-direct-references = true
