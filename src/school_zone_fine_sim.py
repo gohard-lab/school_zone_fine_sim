@@ -144,11 +144,11 @@ def get_diverse_tips(fine, mode, zone, speed, limit):
 @st.cache_data(ttl=60)
 def fetch_real_data():
     try:
-        # 1. 금고(Secrets)에서 열쇠 꺼내기 시도
-        if "url" not in st.secrets or "key" not in st.secrets:
-            # 현재 금고에 뭐가 들어있는지 키값만 확인 (보안상 값은 출력 안 함)
+        # 1. 금고(Secrets)에서 열쇠 꺼내기 시도 (중첩 구조 올바르게 확인)
+        if "supabase" not in st.secrets or "url" not in st.secrets["supabase"] or "key" not in st.secrets["supabase"]:
+            # 현재 금고에 들어있는 최상위 키값만 확인 (보안 목적상 실제 값은 출력 제외)
             existing_keys = list(st.secrets.to_dict().keys())
-            st.error(f"🚨 [Secret Error] 금고에 URL이나 KEY가 없습니다.")
+            st.error("🚨 [Secret Error] 금고에 URL이나 KEY가 없습니다.")
             st.info(f"현재 인식된 키 목록: {existing_keys}")
             return pd.DataFrame()
 
