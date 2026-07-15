@@ -23,6 +23,11 @@ from streamlit_folium import folium_static
 import sys
 import urllib.request
 
+
+app_name = "school_zone_fine_web"
+action = "app_opened_1"
+
+
 # 시스템 경로에 현재 디렉토리 추가
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
@@ -44,7 +49,7 @@ except ImportError:
         from tracker_hub import log_app_usage
     except Exception as e:
         # 오프라인 또는 에러 대비 더미 함수 정의하여 앱 작동 보장
-        def log_app_usage("school_zone_fine_web", "app_opened_1", details=None):
+        def log_app_usage(app_name, action, details=None):
             pass
 
 
