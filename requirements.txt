@@ -1,0 +1,10 @@
+streamlit>=1.31.0
+pandas>=2.2.0
+supabase>=2.3.0
+streamlit_javascript
+pydeck
+folium>=0.20.0
+streamlit-folium>=0.26.2
+plotly>=6.7.0
+postgrest
+tracker-hub @ git+https://github.com/gohard-lab/tracker-hub.git
