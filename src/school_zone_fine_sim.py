@@ -2,10 +2,10 @@
 # 🛡️ [STAGE 1] GLOBAL MASTER TRACKER INITIALIZATION (최상단 고정)
 # =================================================================
 # 파이썬 엔진이 스트림릿을 구우러 들어가기 전에 문지기부터 완벽하게 세웁니다.
-from tracker_hub import log_app_usage
+# from tracker_hub import log_app_usage
 
 # 앱이 켜지는 순간 최초 1회만 트래킹 데이터 적재
-log_app_usage("school_zone_fine_web", "app_opened_1")
+# log_app_usage("school_zone_fine_web", "app_opened_1")
 
 
 import streamlit as st
@@ -20,6 +20,34 @@ import folium
 from folium.plugins import HeatMap
 from streamlit_folium import st_folium
 from streamlit_folium import folium_static
+import sys
+import urllib.request
+
+# 시스템 경로에 현재 디렉토리 추가
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.append(current_dir)
+
+# tracker_hub 임포트 시도 및 실패 시 깃허브에서 직접 다운로드
+try:
+    from tracker_hub import log_app_usage
+except ImportError:
+    try:
+        # 대표님의 공용 tracker-hub 저장소에서 tracker_hub.py 파일 다운로드
+        raw_url = "https://raw.githubusercontent.com/gohard-lab/tracker-hub/main/tracker_hub.py"
+        target_path = os.path.join(current_dir, "tracker_hub.py")
+        
+        if not os.path.exists(target_path):
+            urllib.request.urlretrieve(raw_url, target_path)
+        
+        # 다운로드 완료 후 임포트 재시도
+        from tracker_hub import log_app_usage
+    except Exception as e:
+        # 오프라인 또는 에러 대비 더미 함수 정의하여 앱 작동 보장
+        def log_app_usage("school_zone_fine_web", "app_opened_1", details=None):
+            pass
+
+
 
 
 # 사이드바에 유튜브 영상 배치
