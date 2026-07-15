@@ -7,4 +7,4 @@ folium>=0.20.0
 streamlit-folium>=0.26.2
 plotly>=6.7.0
 postgrest
-tracker-hub @ git+https://github.com/gohard-lab/tracker-hub.git
+git+https://github.com/gohard-lab/tracker-hub.git
